@@ -10,7 +10,7 @@ Iosif Chrysostomou 9130
 | starter_se.py | config.ini | Parameter |
 | --- | --- | --- |
 | cache_line_size = **64** | [system] cache_line_size=**64** | Cache Block Size **64B**
-| self.voltage_domain = VoltageDomain(voltage="**3.3V**") | [system.voltage_domain] voltage=3.3 |  System Voltage **3.3V**
+| self.voltage_domain = VoltageDomain(voltage="**3.3V**") | [system.voltage_domain] voltage=**3.3** |  System Voltage **3.3V**
 | self.clk_domain = SrcClockDomain(clock="**1GHz**", voltage_domain=self.voltage_domain) | [system.clk_domain] clock=**1000** | Top-Level Clock **1GHz**
 | cpu_types = { "atomic", **"minor**"", "hpi" } | [system.cpu_cluster.cpus] type=**MinorCPU** | Simulated CPU Model **Minor** 
 | parser.add_argument("**--cpu-freq**", type=str, default="**4GHz**") | [system.cpu_cluster.clk_domain] clock=**250** | CPU Frequency **4GHz**
@@ -22,15 +22,7 @@ Iosif Chrysostomou 9130
 | - | [system.cpu.icache] size=**32768** | Instruction Cache Size **32KB**
 | - | [system.cpu_cluster.l2] size=**1048576** | L2 Cache Size **1MB**
 
-mem_mode=timing άρα
-> if self.cpu_cluster.memoryMode() == "timing":
-        self.cpu_cluster.addL1()
-        self.cpu_cluster.addL2(self.cpu_cluster.clk_domain)
-
-_dache_ size=32768
-block_size=64
-_icache_ size=49152
-_l2_ size=1048576
+---
 
 #### **SimpleCPU**
 The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of wich is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access witch is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access wich is the most detailed access type.
