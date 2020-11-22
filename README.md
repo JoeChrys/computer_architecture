@@ -7,7 +7,7 @@ Iosif Chrysostomou 9130
 
 ---
 
-##### 1. , 2a.
+### 1. , 2a.
 
 | starter_se.py | config.ini | Parameter |
 | --- | --- | --- |
@@ -26,11 +26,11 @@ Iosif Chrysostomou 9130
 
 ---
 
-##### 2b.
+### 2b.
 
 From the stats.txt file we can see that 5834 CPU operations were committed, however, 1332 more operations were executed but discarded. (7166 executed operations in total)
 
-##### 2c.
+### 2c.
 
 L2 cache was accessed 479 times overall (332 for instructions and 147 for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (dcache) and Instruction Cache (icache) MSHR misses which are 147 and 332 respectively
 
@@ -51,3 +51,8 @@ The number of the simulated seconds was dramatically different between a **Minor
 The biggest difference of the two models is the use of **pipelining** in the **MinorCPU** model. Given that the number of simulated instructions is almost the same in the two models, we have a 2.3 times increase in the cpi from the **MinorCPU** to the **TimingSimpleCPU**.
 ### 3.c.
 Increasing the frequency from 2GHz to 4GHz on a **MinorCPU** model, we decrease the simulated seconds from 0.722 ms to 0.439 ms. This shown that the number of simulated seconds depends not only by the cpu frequency but on other delays as well. Notibly, the cpi was increased from 1.4 to 1.7 which is probably due to memory delays. In the **TimingSimpleCPU**, with the same frequency change, we see the simulated seconds drop from 1.691 to 0.924 ms. In both cpu models and both of the above cpu frequencies we tried running the simulation with the default DDR3_1600_8x8 and DDR4_2400_8x8. In every case, the difference was negligible. We saw 1 us decrease on the simulated seconds which corresponds in less than 0.5% improvement in performance in every case.
+
+### Sources
+[Simple CPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
+[Minor CPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)
+[Memory Systems](https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types)
