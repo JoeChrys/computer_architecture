@@ -2,8 +2,7 @@
 
 ## Lab 1
 
-Ilia Zarka 9289
-
+Ilia Zarka 9289\
 Iosif Chrysostomou 9130
 
 ---
