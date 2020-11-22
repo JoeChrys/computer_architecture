@@ -15,9 +15,9 @@ Iosif Chrysostomou 9130
 | cpu_types = { "atomic", **"minor**"", "hpi" } | [system.cpu_cluster.cpus] type=**MinorCPU** | Simulated CPU Model **Minor** 
 | parser.add_argument("**--cpu-freq**", type=str, default="**4GHz**") | [system.cpu_cluster.clk_domain] clock=**250** | CPU Frequency **4GHz**
 | parser.add_argument("**--num-cores**", type=int, default=**1**, help="Number of CPU cores") | [system.cpu_cluster.cpus] cpu_id=0 | Number of Cores **1**
-| parser.add_argument("**--mem-type**", default="**DDR3_1600_8x8**", choices=ObjectList.mem_list.get_names(), help = "type of memory to use") | [system.mem_ctrls.dram] beats_per_clock=2 (DDR) [system.mem_ctrls.dram] tCK=1250 (800MHz)| DRAM Type **1600MHz**
+| parser.add_argument("**--mem-type**", default="**DDR3_1600_8x8**", choices=ObjectList.mem_list.get_names(), help = "type of memory to use") | [system.mem_ctrls.dram] beats_per_clock=**2** **(DDR)** [system.mem_ctrls.dram] **tCK=1250** **(800MHz)** | DRAM Type **1600MHz**
 | parser.add_argument("**--mem-channels**", type=int, default=**2**, help = "number of memory channels") |  [system.mem_ctrls0.dram] [system.mem_ctrls1.dram] | Number of Memory Channels **2**
-| parser.add_argument("**--mem-size**", action="store", type=str, default="**2GB**", help="Specify the physical memory size") | mem_ranges=0:2147483648 | Total DRAM Size **2GB**
+| parser.add_argument("**--mem-size**", action="store", type=str, default="**2GB**", help="Specify the physical memory size") | mem_ranges=**0:2147483648** | Total DRAM Size **2GB**
 | - | [system.cpu_cluster.cpus.dcache] size=**32768** | L1 Cache Size **32KB**
 | - | [system.cpu.icache] size=**32768** | Instruction Cache Size **32KB**
 | - | [system.cpu_cluster.l2] size=**1048576** | L2 Cache Size **1MB**
