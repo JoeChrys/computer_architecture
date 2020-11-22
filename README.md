@@ -1,7 +1,7 @@
 # Computer Architecture
 
 ## Lab 1
-22/11/2020\ \ 
+22/11/2020\ 
 Ilia Zarka 9289\
 Iosif Chrysostomou 9130
 
