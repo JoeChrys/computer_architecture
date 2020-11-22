@@ -7,16 +7,16 @@ series of instructions, to easily compare different types of cpus
 **/
 
 //define the number of iterations of the for loop
-#define NUMOFITERATIONS 10000
+#define NUM_OF_ITERATIONS 10000
 
 int main()
 {
 
     //initialize the variables
-    int i,j=NUMOFITERATIONS;
-    float k[4 * NUMOFITERATIONS];
+    int i,j=NUM_OF_ITERATIONS;
+    float k[4 * NUM_OF_ITERATIONS];
 
-    for (i=0; i<NUMOFITERATIONS; i++){
+    for (i=0; i<NUM_OF_ITERATIONS; i++){
 
         //do five simple operations in every iteration of the loop
         k[0+(4*i)]= (float) (i+j);
