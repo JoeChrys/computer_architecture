@@ -18,7 +18,7 @@ int main()
 
     for (i=0; i<NUMOFITERATIONS; i++){
 
-        //do four simple operations in every iteration of the loop
+        //do five simple operations in every iteration of the loop
         k[0+(4*i)]= (float) (i+j);
         k[1+(4*i)]= (float) (i-j);
         k[2+(4*i)]= (float) (i*j);
