@@ -23,12 +23,18 @@ Iosif Chrysostomou 9130
 | - | [system.cpu_cluster.l2] size=**1048576** | L2 Cache Size **1MB**
 
 ---
-
-#### **SimpleCPU**
+#### 3.
+##### **SimpleCPU**
 The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
-#### **MinorCPU**
+##### **MinorCPU**
 **Minor** is a processor model with a fixed, 4 stage pipeline.  It is intended to be used to model processors with strict in-order execution behaviour and allows visualisation of an instruction’s position in the pipeline. The intention is to provide a framework for correlating the model with a particular, chosen processor with similar capabilities. The four stages of the pipeline work as follows.\
 **Fetch1** fetches cache lines or partial cache lines from the I-cache and passing them on to Fetch2.\
 **Fetch2** separates the data from **Fetch1** into individual instructions which are packed into a vector of instructions.\
 **Decode Stage** decomposes those instructions into micro-ops (if necessary) and packs them into its output instruction vector.\
 **Execute Stage** provides all the instruction execution and memory access mechanisms.
+#### 3.a.
+The number of the simulated seconds was dramatically different between a **MinorCPU** model and a **TimingSimpleCPU** model. Our simple code run in 1.691 ms with on a **TimingSimpleCPU** and in 0.722 ms on a **MinorCPU** model.
+#### 3.b.
+The biggest difference of the two models is the use of **pipelining** in the **MinorCPU** model. Given that the number of simulated instructions is almost the same in the two models, we have a 2.3 times increase in the cpi from the **MinorCPU** to the **TimingSimpleCPU**.
+#### 3.c.
+Increasing the frequency from 2GHz to 4GHz on a **MinorCPU** model, we decrease the simulated seconds from 0.722 ms to 0.439 ms. This shown that the number of simulated seconds denpends not only by the cpu frequency but on other delays as well. Notibly, the cpi was increased from 1.4 to 1.7 wich is probably due to memory delays. In the **TimingSimpleCPU**, with the same frequency change, we see the simulated seconds drop from 1.691 to 0.924 ms. In both cpu models and both of the above cpu frequencies we tried running the simulation with the default DDR3_1600_8x8 and DDR4_2400_8x8. In every case, the difference was negligible. We saw 1 us decrease on the simulated seconds which corresponds in less than 0.5% improvement in perormance in every case.
