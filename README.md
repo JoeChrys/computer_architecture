@@ -7,6 +7,8 @@ Iosif Chrysostomou 9130
 
 ---
 
+##### 1. , 2a.
+
 | starter_se.py | config.ini | Parameter |
 | --- | --- | --- |
 | cache_line_size = **64** | [system] cache_line_size=**64** | Cache Block Size **64B**
@@ -23,6 +25,17 @@ Iosif Chrysostomou 9130
 | - | [system.cpu_cluster.l2] size=**1048576** | L2 Cache Size **1MB**
 
 ---
+
+##### 2b.
+
+From the stats.txt file we can see that 5834 CPU operations were committed, however, 1332 more operations were executed but discarded. (7166 executed operations in total)
+
+##### 2c.
+
+L2 cache was accessed 479 times overall (332 for instructions and 147 for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (dcache) and Instruction Cache (icache) MSHR misses which are 147 and 332 respectively
+
+---
+
 ### 3.
 #### **SimpleCPU**
 The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
