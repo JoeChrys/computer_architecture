@@ -49,6 +49,9 @@ The **SimpleCPU** is a simple, purely functional in-order model, suitable for ca
 **Fetch2** separates the data from **Fetch1** into individual instructions which are packed into a vector of instructions.\
 **Decode Stage** decomposes those instructions into micro-ops (if necessary) and packs them into its output instruction vector.\
 **Execute Stage** provides all the instruction execution and memory access mechanisms.
+
+---
+
 ### 3.a.
 The number of the simulated seconds was dramatically different between a **MinorCPU** model and a **TimingSimpleCPU** model. Our simple code run in `1.691 ms` with on a **TimingSimpleCPU** and in `0.722 ms` on a **MinorCPU** model.
 ### 3.b.
@@ -77,10 +80,14 @@ Increasing the frequency from `2GHz` to `4GHz` on a **MinorCPU** model, we decre
 
 ![bargraph](./images/bargraph.png)
 
+---
+
 ### Comments
 The exercise was simple enough for an introduction to ISA simulation however there are some difficulties that novice Linux users will encounter and quite possibly get stuck on. First things first, the given instructions for gem5 installation were simple and understandable enough, though they were not all applicable to newer systems and the latest itaration of the gem5 software, so the official instructions were followed. There has been some conceptual confusion on our part mostly since we have just started getting used to the terminology. Also we believe that the aforementioned documentation misses and some of the tasks are too demanding for a first contact with Linux.
 
 Apart from that, this exercise packs a lot of skills to be earned since Markdown, Git and the use of CLI are essential tools for someone in the field of Computer Architecture.
+
+---
 
 ### Sources
 [Simple CPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)\
