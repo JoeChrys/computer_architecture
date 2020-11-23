@@ -5,11 +5,13 @@
 Ilia Zarka 9289\
 Iosif Chrysostomou 9130
 
+All the numbers below correspond to our given ansewers for the questions found in the file ```arch_assignment1_v3.pdf```
+
 ---
 
 ### 1. , 2a.
 
-In the table below we present the parameters found in the script file starter_se.py (Question 1) and correlate them with the parameters found in the output file config.ini (Question 2a). In the final column are all the parameters accompanied by their value in their most commonly seen form (e.g. in GHz instead of ps).
+In the table below we present the parameters found in the script file ```starter_se.py``` (Question 1) and correlate them with the parameters found in the output file ```config.ini``` (Question 2a). In the final column are all the parameters accompanied by their value in their most commonly seen form (e.g. in GHz instead of ps).
 
 | starter_se.py | config.ini | Parameter |
 | --- | --- | --- |
