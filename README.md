@@ -32,11 +32,11 @@ In the table below we present the parameters found in the script file `starter_s
 
 ### 2b.
 
-From the `stats.txt` file we can see that 5044 simulated CPU instructions were committed and 5853 simulated CPU operations were executed. These two numbers usually differ since an instruction can require more than one operation in order to get committed. 
+From the `stats.txt` file we can see that **5044** simulated CPU instructions were committed and **5853** simulated CPU operations were executed. These two numbers usually differ since an instruction can require more than one operation in order to get committed. 
 
 ### 2c.
 
-L2 cache was accessed 479 times overall (332 for instructions and 147 for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (`dcache`) and Instruction Cache (`icache`) MSHR misses which are 147 and 332 respectively
+L2 cache was accessed **479** times overall (**332** for instructions and **147** for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (`dcache`) and Instruction Cache (`icache`) MSHR misses which are **147** and **332** respectively.
 
 ---
 
