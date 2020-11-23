@@ -75,7 +75,7 @@ Increasing the frequency from 2GHz to 4GHz on a **MinorCPU** model, we decrease 
 | **TimingSimpleCPU** with **DDR4_2400_8x8** @**4GHz**   |     0.952     |   -  |
 | **TimingSimpleCPU** with **DDR4_2400_8x8** @**8GHz**   |     0.549     |   -  |
 
-![][./images/bargraph.png]
+![bargraph](./images/bargraph.png)
 
 ### Sources
 [Simple CPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)\
