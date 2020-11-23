@@ -5,13 +5,13 @@
 Ilia Zarka 9289\
 Iosif Chrysostomou 9130
 
-All the numbers below correspond to our given ansewers for the questions found in the file ```arch_assignment1_v3.pdf```
+All the numbers below correspond to our given ansewers for the questions found in the file `arch_assignment1_v3.pdf`
 
 ---
 
 ### 1. , 2a.
 
-In the table below we present the parameters found in the script file ```starter_se.py``` (Question 1) and correlate them with the parameters found in the output file ```config.ini``` (Question 2a). In the final column are all the parameters accompanied by their value in their most commonly seen form (e.g. in GHz instead of ps).
+In the table below we present the parameters found in the script file `starter_se.py` (Question 1) and correlate them with the parameters found in the output file `config.ini` (Question 2a). In the final column are all the parameters accompanied by their value in their most commonly seen form (e.g. in GHz instead of ps).
 
 | starter_se.py | config.ini | Parameter |
 | --- | --- | --- |
@@ -32,11 +32,11 @@ In the table below we present the parameters found in the script file ```starter
 
 ### 2b.
 
-From the stats.txt file we can see that 5834 CPU operations were committed, however, 1332 more operations were executed but discarded. (7166 executed operations in total)
+From the `stats.txt` file we can see that 5044 simulated CPU instructions were committed and 5853 simulated CPU operations were executed. These two numbers usually differ since an instruction can require more than one operation in order to get committed. 
 
 ### 2c.
 
-L2 cache was accessed 479 times overall (332 for instructions and 147 for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (dcache) and Instruction Cache (icache) MSHR misses which are 147 and 332 respectively
+L2 cache was accessed 479 times overall (332 for instructions and 147 for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (`dcache`) and Instruction Cache (`icache`) MSHR misses which are 147 and 332 respectively
 
 ---
 
