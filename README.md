@@ -56,6 +56,27 @@ The biggest difference of the two models is the use of **pipelining** in the **M
 ### 3.c.
 Increasing the frequency from 2GHz to 4GHz on a **MinorCPU** model, we decrease the simulated seconds from 0.722 ms to 0.439 ms. This shown that the number of simulated seconds depends not only by the cpu frequency but on other delays as well. Notibly, the cpi was increased from 1.4 to 1.7 which is probably due to memory delays. In the **TimingSimpleCPU**, with the same frequency change, we see the simulated seconds drop from 1.691 to 0.924 ms. In both cpu models and both of the above cpu frequencies we tried running the simulation with the default DDR3_1600_8x8 and DDR4_2400_8x8. In every case, the difference was negligible. We saw 1 us decrease on the simulated seconds which corresponds in less than 0.5% improvement in performance in every case.
 
+|                                                        | run time (ms) |  cpi |
+|--------------------------------------------------------|:-------------:|:----:|
+| **MinorCPU** with **DDR3_1600_8x8** @**0.5GHz**        |     2.403     | 1.17 |
+| **MinorCPU** with **DDR3_1600_8x8** @**2GHz**          |     0.722     | 1.4  |
+| **MinorCPU** with **DDR3_1600_8x8** @**4GHz**          |     0.439     |  1.7 |
+| **MinorCPU** with **DDR3_1600_8x8** @**8GHz**          |      0.3      | 2.34 |
+| **MinorCPU** with **DDR4_2400_8x8** @**0.5GHz**        |     2.476     |  1.2 |
+| **MinorCPU** with **DDR4_2400_8x8** @**2GHz**          |     0.721     |  1.4 |
+| **MinorCPU** with **DDR4_2400_8x8** @**4GHz**          |     0.438     |  1.7 |
+| **MinorCPU** with **DDR4_2400_8x8** @**8GHz**          |      0.3      |  2.3 |
+| **TimingSimpleCPU** with **DDR3_1600_8x8** @**0.5GHz** |     6.293     |   -  |
+| **TimingSimpleCPU** with **DDR3_1600_8x8** @**2GHz**   |     1.691     |   -  |
+| **TimingSimpleCPU** with **DDR3_1600_8x8** @**4GHz**   |     0.924     |   -  |
+| **TimingSimpleCPU** with **DDR3_1600_8x8** @**8GHz**   |     0.549     |   -  |
+| **TimingSimpleCPU** with **DDR4_2400_8x8** @**0.5GHz** |      6.55     |   -  |
+| **TimingSimpleCPU** with **DDR4_2400_8x8** @**2GHz**   |     1.699     |   -  |
+| **TimingSimpleCPU** with **DDR4_2400_8x8** @**4GHz**   |     0.952     |   -  |
+| **TimingSimpleCPU** with **DDR4_2400_8x8** @**8GHz**   |     0.549     |   -  |
+
+![][./images/bargraph.png]
+
 ### Sources
 [Simple CPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)\
 [Minor CPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)\
