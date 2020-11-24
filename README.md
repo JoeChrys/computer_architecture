@@ -5,7 +5,7 @@
 Ilia Zarka 9289\
 Iosif Chrysostomou 9130
 
-All the numbers below correspond to our given ansewers for the questions found in the file `arch_assignment1_v3.pdf`
+All the numbers below correspond to our answers given for the questions found in the file `arch_assignment1_v3.pdf`
 
 ---
 
