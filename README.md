@@ -40,6 +40,36 @@ L2 cache was accessed **479** times overall (**332** for instructions and **147*
 
 ---
 
+This is the source code used to compare the performance gains by changing the simulation parameters. 
+
+```c
+//define the number of iterations of the for loop
+#define NUM_OF_ITERATIONS 10000
+
+int main()
+{
+
+    //initialize the variables
+    int i,j=NUM_OF_ITERATIONS;
+    float k[4 * NUM_OF_ITERATIONS];
+
+    for (i=0; i<NUM_OF_ITERATIONS; i++){
+
+        //do five simple operations in every iteration of the loop
+        k[0+(4*i)]= (float) (i+j);
+        k[1+(4*i)]= (float) (i-j);
+        k[2+(4*i)]= (float) (i*j);
+
+        if(j==0){
+            j=1;
+        }
+        k[3+(4*i)]=(float)i / (float)j;
+
+        j--;
+    }
+}
+```
+
 ### 3.
 #### **SimpleCPU**
 The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
