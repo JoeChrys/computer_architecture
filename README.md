@@ -40,6 +40,18 @@ L2 cache was accessed **479** times overall (**332** for instructions and **147*
 
 ---
 
+### 3.
+#### **SimpleCPU**
+The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
+#### **MinorCPU**
+**Minor** is a processor model with a fixed, 4 stage pipeline.  It is intended to be used to model processors with strict in-order execution behaviour and allows visualisation of an instruction’s position in the pipeline. The intention is to provide a framework for correlating the model with a particular, chosen processor with similar capabilities. The four stages of the pipeline work as follows.\
+**Fetch1** fetches cache lines or partial cache lines from the I-cache and passing them on to Fetch2.\
+**Fetch2** separates the data from **Fetch1** into individual instructions which are packed into a vector of instructions.\
+**Decode Stage** decomposes those instructions into micro-ops (if necessary) and packs them into its output instruction vector.\
+**Execute Stage** provides all the instruction execution and memory access mechanisms.
+
+---
+
 This is the source code used to compare the performance gains by changing the simulation parameters. 
 
 ```c
@@ -69,18 +81,6 @@ int main()
     }
 }
 ```
-
-### 3.
-#### **SimpleCPU**
-The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
-#### **MinorCPU**
-**Minor** is a processor model with a fixed, 4 stage pipeline.  It is intended to be used to model processors with strict in-order execution behaviour and allows visualisation of an instruction’s position in the pipeline. The intention is to provide a framework for correlating the model with a particular, chosen processor with similar capabilities. The four stages of the pipeline work as follows.\
-**Fetch1** fetches cache lines or partial cache lines from the I-cache and passing them on to Fetch2.\
-**Fetch2** separates the data from **Fetch1** into individual instructions which are packed into a vector of instructions.\
-**Decode Stage** decomposes those instructions into micro-ops (if necessary) and packs them into its output instruction vector.\
-**Execute Stage** provides all the instruction execution and memory access mechanisms.
-
----
 
 ### 3.a.
 The number of the simulated seconds was dramatically different between a **MinorCPU** model and a **TimingSimpleCPU** model. Our simple code run in `1.691 ms` with on a **TimingSimpleCPU** and in `0.722 ms` on a **MinorCPU** model.
