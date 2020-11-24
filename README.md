@@ -115,7 +115,7 @@ Increasing the frequency from `2GHz` to `4GHz` on a **MinorCPU** model, we decre
 ### Comments
 The exercise was simple enough for an introduction to ISA simulation however there are some difficulties that novice Linux users will encounter and quite possibly get stuck on. First things first, the given instructions for gem5 installation were simple and understandable enough, though they were not all applicable to newer systems and the latest itaration of the gem5 software, so the official instructions were followed. There has been some conceptual confusion on our part mostly since we have just started getting used to the terminology. Also we believe that the aforementioned documentation misses and some of the tasks are too demanding for a first contact with Linux.
 
-Apart from that, this exercise packs a lot of skills to be earned since Markdown, Git and the use of CLI are essential tools for someone in the field of Computer Architecture.
+Apart from that, this exercise packs a lot of skills to be earned since Markdown, Git and familiarity with a CLI are essential tools for someone in the field of Computer Architecture.
 
 ---
 
