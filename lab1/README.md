@@ -86,7 +86,7 @@ int main()
 ### 3.a.    Performance comparison
 The number of the simulated seconds was dramatically different between a **MinorCPU** model and a **TimingSimpleCPU** model. Our simple code run in `1.691 ms` with on a **TimingSimpleCPU** and in `0.722 ms` on a **MinorCPU** model.
 
-### 3.b.    Differnces and similarities between the models
+### 3.b.    Differences and similarities between the models
 The biggest difference of the two models is the use of **pipelining** in the **MinorCPU** model. Given that the number of simulated instructions is almost the same in the two models, both executing instructions for ARM ISA, we have a **2.3 times increase in the cpi** from the MinorCPU to the TimingSimpleCPU.
 
 ### 3.c.    Comparing different parameters
