@@ -9,7 +9,7 @@ All the numbers below correspond to our answers given for the questions found in
 
 ---
 
-### 1. , 2a.
+### 1. , 2a.   Locating system parameters in script and config files
 
 In the table below we present the parameters found in the script file `starter_se.py` (Question 1) and correlate them with the parameters found in the output file `config.ini` (Question 2a). In the final column are all the parameters accompanied by their value in their most commonly seen form (e.g. in GHz instead of ps).
 
@@ -30,17 +30,18 @@ In the table below we present the parameters found in the script file `starter_s
 
 ---
 
-### 2.b.
+### 2.b.   Committed instructions and operations
 
 From the `stats.txt` file we can see that **5044** simulated CPU instructions were committed and **5853** simulated CPU operations were executed. These two numbers usually differ since an instruction can require more than one operation in order to get committed. 
 
-### 2.c.
+### 2.c.    L2 accesses
 
 L2 cache was accessed **479** times overall (**332** for instructions and **147** for data, through the use of MSHR). This number can also be calculated by examining both Data Cache (`dcache`) and Instruction Cache (`icache`) MSHR misses which are **147** and **332** respectively.
 
 ---
 
-### 3.
+### 3.  Comparing CPU models
+
 #### **SimpleCPU**
 The **SimpleCPU** is a simple, purely functional in-order model, suitable for cases where a detailed model is not necessary. It is broken down into three classes, the first one of which is the **BaseSimpleCPU**. This class implements various basic functions, such as interrupt checking and andancing the PC. You can not run this on its own though. You need to use one of the classes that inherits from **BaseSimpleCPU**. Those classes are **AtomicSimpleCPU** and **TimingSimpleCPU**. **AtomicSimpleCPU** uses atomic memory access which is faster than timing memory access. **TimingSimpleCPU** uses the timing memory access which is the most detailed access type.
 #### **MinorCPU**
@@ -82,11 +83,13 @@ int main()
 }
 ```
 
-### 3.a.
+### 3.a.    Performance comparison
 The number of the simulated seconds was dramatically different between a **MinorCPU** model and a **TimingSimpleCPU** model. Our simple code run in `1.691 ms` with on a **TimingSimpleCPU** and in `0.722 ms` on a **MinorCPU** model.
-### 3.b.
-The biggest difference of the two models is the use of **pipelining** in the **MinorCPU** model. Given that the number of simulated instructions is almost the same in the two models, both executing instructions from ARM ISA, we have a **2.3 times increase in the cpi** from the MinorCPU to the TimingSimpleCPU.
-### 3.c.
+
+### 3.b.    Differnces and similarities between the models
+The biggest difference of the two models is the use of **pipelining** in the **MinorCPU** model. Given that the number of simulated instructions is almost the same in the two models, both executing instructions for ARM ISA, we have a **2.3 times increase in the cpi** from the MinorCPU to the TimingSimpleCPU.
+
+### 3.c.    Comparing different parameters
 Increasing the frequency from `2GHz` to `4GHz` on a **MinorCPU** model, we decrease the simulated seconds from `0.722 ms` to `0.439 ms`. This shown that the number of simulated seconds depends not only by the cpu frequency but on other delays as well. Notibly, the cpi was increased from `1.4` to `1.7` which is probably due to memory delays. In the **TimingSimpleCPU**, with the same frequency change, we see the simulated seconds drop from 1.691 to 0.924 ms. In both cpu models and both of the above cpu frequencies we tried running the simulation with the default `DDR3_1600_8x8` and `DDR4_2400_8x8`. On the **MinorCPU** model, the difference was negligible. We saw `1 us` decrease on the simulated seconds which corresponds in less than 0.5% improvement in performance in every case. On the **TimingSimpleCPU** we saw an improvement of up to 3%. We also run simulations with a couple of extreme frequencies to get a wider image of the frequency effect on the simulated time.
 
 |                                                        | run time (ms) |  cpi |
